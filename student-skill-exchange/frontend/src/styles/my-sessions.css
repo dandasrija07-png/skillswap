@@ -1,0 +1,611 @@
+/* ==========================================================================
+   SkillSwap - My Sessions & Session Scheduling Stylesheet
+   SaaS Purple / Indigo / Lavender Theme
+   ========================================================================== */
+
+.sessions-page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Header */
+.sessions-header {
+  margin-bottom: 2rem;
+}
+
+.sessions-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.sessions-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+
+.sessions-subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Metrics Row */
+.sessions-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.session-metric-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #ede9fe;
+  box-shadow: 0 4px 16px -2px rgba(99, 102, 241, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.session-metric-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.session-metric-icon.indigo {
+  background: #ede9fe;
+  color: #6366f1;
+}
+
+.session-metric-icon.amber {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.session-metric-icon.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.session-metric-icon.purple {
+  background: #f3e8ff;
+  color: #9333ea;
+}
+
+.session-metric-info h4 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1;
+}
+
+.session-metric-info p {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0.35rem 0 0 0;
+  font-weight: 600;
+}
+
+/* Controls Bar (Filter Tabs + Booking CTA + Calendar/List view toggle) */
+.sessions-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+}
+
+.sessions-filter-tabs {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.session-tab-btn {
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  background: none;
+  color: #64748b;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.session-tab-btn:hover {
+  background: #f8fafc;
+  color: #334155;
+}
+
+.session-tab-btn.active {
+  background: #ede9fe;
+  color: #6366f1;
+  border-color: #c4b5fd;
+  font-weight: 700;
+}
+
+.session-badge-count {
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  background: #ffffff;
+  color: #6366f1;
+  font-weight: 800;
+}
+
+.sessions-action-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.view-toggle-btn {
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #475569;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s;
+}
+
+.view-toggle-btn:hover {
+  border-color: #94a3b8;
+  background: #f8fafc;
+}
+
+.view-toggle-btn.active {
+  background: #6366f1;
+  color: #ffffff;
+  border-color: #6366f1;
+}
+
+.btn-book-session {
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-book-session:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35);
+}
+
+/* Sessions Cards Grid */
+.sessions-list-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.session-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #ede9fe;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px -2px rgba(99, 102, 241, 0.04);
+  transition: all 0.2s;
+}
+
+.session-card:hover {
+  box-shadow: 0 8px 24px -4px rgba(99, 102, 241, 0.08);
+  border-color: #c4b5fd;
+}
+
+.session-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.session-partner-info {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.session-partner-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid #ede9fe;
+}
+
+.session-partner-fallback {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.session-topic-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+}
+
+.session-partner-meta {
+  font-size: 0.82rem;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Status Badges */
+.session-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.session-status-pill.upcoming {
+  background: #e0e7ff;
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+}
+
+.session-status-pill.awaiting {
+  background: #fef3c7;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.session-status-pill.completed {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.session-status-pill.cancelled {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #e2e8f0;
+}
+
+/* Time & Location Box */
+.session-details-box {
+  background: #f8fafc;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  padding: 1rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.session-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  color: #334155;
+}
+
+.session-detail-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6366f1;
+  flex-shrink: 0;
+}
+
+/* Dual Completion Confirmation Bar */
+.completion-tracker-box {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.08) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  border-radius: 12px;
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.completion-steps {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.82rem;
+}
+
+.completion-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.completion-step.done {
+  color: #15803d;
+}
+
+.completion-step.pending {
+  color: #b45309;
+}
+
+/* Footer / Action Buttons */
+.session-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #f1f5f9;
+  flex-wrap: wrap;
+}
+
+.session-left-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.session-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.btn-join-room {
+  padding: 0.55rem 1.15rem;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-join-room:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.btn-mark-complete {
+  padding: 0.55rem 1.15rem;
+  border-radius: 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+  transition: all 0.2s;
+}
+
+.btn-mark-complete:hover {
+  opacity: 0.95;
+}
+
+.btn-reschedule {
+  padding: 0.55rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s;
+}
+
+.btn-reschedule:hover {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.btn-cancel-session {
+  padding: 0.55rem 0.95rem;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  background: #ffffff;
+  border: 1px solid #fecaca;
+  color: #ef4444;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s;
+}
+
+.btn-cancel-session:hover {
+  background: #fef2f2;
+}
+
+/* Calendar View Layout */
+.calendar-view-container {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #ede9fe;
+  padding: 1.75rem;
+  box-shadow: 0 4px 16px -2px rgba(99, 102, 241, 0.04);
+}
+
+.calendar-month-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.calendar-month-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.calendar-grid-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 0.75rem;
+}
+
+.calendar-grid-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day-cell {
+  min-height: 85px;
+  border-radius: 12px;
+  border: 1px solid #f1f5f9;
+  padding: 0.45rem;
+  background: #fdfdfd;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-day-cell:hover {
+  background: #faf5ff;
+  border-color: #ddd6fe;
+}
+
+.calendar-day-cell.selected {
+  border-color: #6366f1;
+  background: #f5f3ff;
+}
+
+.calendar-day-cell.has-session {
+  border-color: #c4b5fd;
+  background: #faf5ff;
+}
+
+.calendar-day-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.calendar-day-session-dot {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: #6366f1;
+  color: #ffffff;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 640px) {
+  .sessions-title {
+    font-size: 1.75rem;
+  }
+
+  .session-card-header {
+    flex-direction: column;
+  }
+
+  .session-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .session-left-actions,
+  .session-right-actions {
+    flex-direction: column;
+  }
+
+  .btn-join-room,
+  .btn-mark-complete,
+  .btn-reschedule,
+  .btn-cancel-session {
+    justify-content: center;
+  }
+}
+

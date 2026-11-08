@@ -1,0 +1,27 @@
+{
+  "name": "student-skill-exchange",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Student Skill Exchange Platform (SkillSwap) - Full Stack CSE Project",
+  "scripts": {
+    "start": "npm --prefix backend start",
+    "build": "npm --prefix frontend run build",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "test": "node backend/src/tests/test_qa_audit_master.js",
+    "test:apis": "node backend/src/tests/test_backend_apis.js",
+    "test:socket": "node backend/src/tests/test_socket_realtime.js",
+    "test:admin": "node backend/src/tests/test_admin_dashboard.js",
+    "test:integration": "node frontend/src/tests/verify_frontend_integration.js",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install"
+  },
+  "keywords": [
+    "student-skill-exchange",
+    "react",
+    "express",
+    "mysql",
+    "socketio"
+  ],
+  "author": "SkillSwap Engineering Team",
+  "license": "ISC"
+}
