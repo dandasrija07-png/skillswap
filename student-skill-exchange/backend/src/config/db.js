@@ -1,4 +1,29 @@
 /**
+ * Test TiDB Cloud database connectivity
+ */
+export const testConnection = async () => {
+  if (!pool) {
+    throw new Error('Database pool is not initialized');
+  }
+
+  let connection;
+
+  try {
+    connection = await pool.getConnection();
+    await connection.query('SELECT 1');
+    isLiveMySQL = true;
+    console.log('Successfully connected to TiDB Cloud!');
+    return true;
+  } catch (error) {
+    isLiveMySQL = false;
+    console.error('TiDB connection failed:', error.message);
+    throw error;
+  } finally {
+    if (connection) connection.release();
+  }
+};
+
+/**
  * Execute database queries
  */
 export const query = async (sqlText, params = []) => {
@@ -17,34 +42,10 @@ export const query = async (sqlText, params = []) => {
       'Database is not connected. Cannot execute production queries.'
     );
   }
-  export const testConnection = async () => {
-  if (!pool) {
-    throw new Error('Database pool is not initialized');
-  }
-
-  let connection;
-
-  try {
-    connection = await pool.getConnection();
-    await connection.query('SELECT 1');
-
-    isLiveMySQL = true;
-    console.log('Successfully connected to TiDB Cloud!');
-
-    return true;
-  } catch (error) {
-    isLiveMySQL = false;
-    console.error('TiDB connection failed:', error.message);
-    throw error;
-  } finally {
-    if (connection) {
-      connection.release();
-    }
-  }
-};
 
   return executeMemoryQuery(sqlText, params);
 };
+
 export const getMemoryStore = () => memoryStore;
 
 export default {
