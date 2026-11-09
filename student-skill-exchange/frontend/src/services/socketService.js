@@ -8,10 +8,9 @@ import { io } from 'socket.io-client';
 const SOCKET_SERVER_URL =
   (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_SOCKET_URL) ||
   (typeof process !== 'undefined' && process.env && process.env.VITE_SOCKET_URL) ||
-  'http://localhost:5000';
+  'https://skillswap-gygo.onrender.com';
 
 let socket = null;
-
 export const initSocket = (token) => {
   if (socket && socket.connected) {
     return socket;
