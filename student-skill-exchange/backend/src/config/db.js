@@ -168,10 +168,7 @@ export const testConnection = async () => {
     }
   }
 };
-  if (pool) {
-    try {
-      const conn = await pool.getConnection();
-      isLiveMySQL = true;
+
       
 export const query = async (sqlText, params = []) => {
   if (isLiveMySQL && pool) {
