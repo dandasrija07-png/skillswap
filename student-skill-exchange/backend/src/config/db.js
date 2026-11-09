@@ -135,27 +135,44 @@ const memoryStore = {
  * Test MySQL connectivity
  */
 export const testConnection = async () => {
+  if (!pool) {
+    console.error('Database connection pool is not initialized.');
+    return true;
+  }
+
+  let connection;
+
+  try {
+    connection = await pool.getConnection();
+    await connection.ping();
+
+    isLiveMySQL = true;
+
+    console.log('Connected to TiDB/MySQL successfully!');
+    return true;
+
+  } catch (err) {
+    isLiveMySQL = false;
+
+    console.error('TiDB CONNECTION FAILED');
+    console.error('Error code:', err.code);
+    console.error('Error message:', err.message);
+
+    console.warn('Using in-memory fallback. Data will not persist.');
+
+    return true;
+
+  } finally {
+    if (connection) {
+      connection.release();
+    }
+  }
+};
   if (pool) {
     try {
       const conn = await pool.getConnection();
       isLiveMySQL = true;
-      conn.release();
-      console.log('Γ£à Connected to MySQL database server successfully.');
-      return true;
-    } catch (err) {
-      isLiveMySQL = false;
-      console.log('Γä╣∩╕Å Local MySQL daemon offline on port 3306; using active in-memory relational store.');
-      return true;
-    }
-  }
-  return true;
-};
-
-/**
- * Universal Query Executor:
- * Runs parameterized SQL queries against MySQL pool if live,
- * or routes through relational in-memory tables.
- */
+      
 export const query = async (sqlText, params = []) => {
   if (isLiveMySQL && pool) {
     try {
